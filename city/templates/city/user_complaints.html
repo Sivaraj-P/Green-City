@@ -1,0 +1,87 @@
+{% extends 'city/navbar.html' %} {% block title %}
+<title>Green City | Complaint History</title>
+{% endblock title %} {% load static %}{% block content %}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #section {
+    height: 100% !important;
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    background-size: cover;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  img {
+    height: 200px;
+    width: 200px;
+  }
+  .oops {
+    height: 70%;
+    width: 100%;
+  }
+  .card {
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+  p,
+  .card-title {
+    color: rgb(55, 69, 83);
+    font-size: 18px;
+  }
+</style>
+
+<div id="section">
+  {% if complaint %} {% for complaints in complaint %}
+  <div class="card" style="width: 18rem">
+    <img src="{{complaints.picture.url}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <p class="card-title" id="type">
+        <i class="fa-solid fa-clipboard-list"></i
+        >&nbsp;{{complaints.complaint_type}}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <p id="address">
+          <i class="fa-solid fa-location-dot"></i>&nbsp;{{complaints.address}}
+        </p>
+      </li>
+      <li class="list-group-item">
+        <p id="area">
+          <i class="fa-solid fa-map-pin"></i>&nbsp;{{complaints.area}}
+        </p>
+      </li>
+      <li class="list-group-item">
+        <p id="city">
+          <i class="fa-solid fa-map-location-dot"></i>&nbsp;{{complaints.city}}
+        </p>
+      </li>
+      <li class="list-group-item">
+        <p id="date">
+          <i class="fa-solid fa-calendar-days"></i>&nbsp;
+          {{complaints.complaint_date}}
+        </p>
+      </li>
+      <li class="list-group-item">
+        <p id="status">
+          <i class="fa-regular fa-square-check"></i>&nbsp;{{complaints.status}}
+        </p>
+      </li>
+    </ul>
+  </div>
+  <br />
+
+  {% endfor %} {% else %}
+
+  <img src="{% static 'images/solved.gif' %}" alt="" class="oops" />
+  <h1>Oops! No Complaint History</h1>
+  {% endif %}
+</div>
+{% endblock content %}

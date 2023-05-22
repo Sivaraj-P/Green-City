@@ -1,0 +1,198 @@
+{% extends 'city/navbar.html' %} {% load static %} {% block title %}
+<title>Green City</title>
+{% endblock title %} {% block content %}
+<div class="carousel slide" id="slides" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0" class="active"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/farming.jpeg' %}" />
+      <div class="carousel-caption">
+        <h1 class="diaplay-2">Green City</h1>
+        <h3>pollution free environment</h3>
+        <a
+          href="{% url 'complaint' %}"
+          class="btn btn-outline-light btn-outline-light btn-lg"
+          >Complaint</a
+        >
+        <a
+          href="{% url 'check_status' %}"
+          id="status"
+          class="btn btn-outline-light btn-outline-light btn-lg"
+        >
+          Check Status
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<!-- statistics cards -->
+{% include 'city/cards.html' %}
+
+<!-- jumbot run -->
+<style>
+  #about {
+    background: rgb(233, 232, 232);
+  }
+  p {
+    font-size: 18px;
+  }
+</style>
+<div class="container" #about>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>About Us</h1>
+      <p>
+        The webpage efficiently addresses the complaints registered by users
+        regarding garbage, sewage, and other pollution-related issues. It
+        provides a quick and easy way for citizens to report their concerns and
+        ensures timely resolution of the same. Overall, it is a great initiative
+        to ensure that the cities are clean, pollution-free and healthy for the
+        residents.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img
+        src="{% static 'images/nature.jpg' %}"
+        alt="About Us Image"
+        class="img-fluid"
+      />
+    </div>
+  </div>
+</div>
+<br />
+<!-- Footer -->
+<footer
+  class="text-center text-lg-start text-white"
+  style="background-color: #181a1f"
+>
+  <div class="container p-4 pb-0">
+    <section class="p-3 pt-0">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-6">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Write a Message to Us!
+          </h6>
+          <form
+            class="contact-form d-flex flex-column align-items-center"
+            action="#"
+            method="POST"
+          >
+            {% csrf_token %}
+            <div class="form-group w-75">
+              <input
+                type="name"
+                class="form-control"
+                placeholder="Enter Name"
+                name="username"
+                required
+              /><br />
+            </div>
+            <div class="form-group w-75">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter Email"
+                name="email"
+                required
+              /><br />
+            </div>
+
+            <div class="form-group w-75">
+              <textarea
+                class="form-control"
+                type="text"
+                rows="3"
+                placeholder="Message"
+                name="message"
+                required
+              ></textarea
+              ><br />
+            </div>
+            <button type="submit" class="btn btn-submit btn-info w-75">
+              Submit</button
+            ><br />
+          </form>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Quick Links</h6>
+          <p>
+            <a class="text-white">About</a>
+          </p>
+          <p>
+            <a class="text-white">Services</a>
+          </p>
+          <p>
+            <a class="text-white" href="{% url 'employee_login' %}"
+              >Employee Login</a
+            >
+          </p>
+        </div>
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p><i class="fas fa-home mr-3"></i> Chennai, TamilNadu</p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i>complaints.greencity@gmail.com
+          </p>
+          <p><i class="fas fa-phone mr-3"></i> +91 9445738480</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-3" />
+
+    <section class="p-3 pt-0">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-7 col-lg-8 text-center text-md-start">
+          <!-- Copyright -->
+          <div class="p-3">
+            © 2023 Copyright:
+            <a class="text-white" href="#">greencity.pythonanywhere.com</a>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            class="text-white"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            class="text-white"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            class="text-white"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <a
+            class="btn btn-outline-light btn-floating m-1"
+            class="text-white"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
+
+{% endblock content %}

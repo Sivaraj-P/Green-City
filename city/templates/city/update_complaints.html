@@ -1,0 +1,11 @@
+{% extends 'city/navbar.html' %} {% load crispy_forms_tags %}{% block title %}
+<title>Green City | Update Complaints</title>
+{% endblock title %} {% block content%}
+<form action="" method="post">
+  {% csrf_token %} {{form.complaint_type|as_crispy_field}}
+  {{form.info|as_crispy_field}}
+  {{form.picture|as_crispy_field}}{{form.status|as_crispy_field}}
+  <input type="submit" class="btn btn-primary" />
+</form>
+
+{% endblock content %}

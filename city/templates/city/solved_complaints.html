@@ -1,0 +1,127 @@
+{% extends 'city/navbar.html' %}
+{% load static %}{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/6e6e5e3e3e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>New Complaints</title>
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #section {
+        height: 100% !important;
+
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        background-size: cover;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      img {
+        height: 200px;
+        width: 200px;
+      }
+      .card {
+        margin: 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      }
+      p,
+      .card-title {
+        color: rgb(55, 69, 83);
+        font-size: 18px;
+      }
+      .gif{
+        width: 100%;
+        height: 70%;
+      }
+    </style>
+
+    <div id="section">
+      {% if solved %}
+      {% for complaints in solved %}
+      
+      <div class="card" style="width: 18rem">
+        <img src="{{complaints.picture.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-title" id="type">
+            <h5>Complaint Type:</h5>&nbsp;{{complaints.complaint_type}}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p id="address">
+              <h5>Complaint Address:</h5>&nbsp;{{complaints.address}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="area">
+              <h5>Complaint Area:</h5>&nbsp;{{complaints.area}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="city">
+              <h5>Complaint City:</h5>&nbsp;{{complaints.city}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="city">
+               <h5>Complaint Lanmark:</h5>&nbsp;{{complaints.landmark}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="city">
+              <h5>More Info</h5>&nbsp;{{complaints.info}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="date">
+              <h5>Complaint Date</h5>&nbsp;
+              {{complaints.complaint_date}}
+            </p>
+          </li>
+          <li class="list-group-item">
+            <p id="status">
+              <i class="fa-regular fa-square-check"></i
+              >&nbsp;{{complaints.status}}
+              <a href="{% url 'update_solved_complaints' complaints.id %}" class="btn btn-primary">Update</a>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <br />
+
+      {% endfor %}
+      {% else %}
+       <img src="{% static 'images/solved.gif' %}" alt="" class="gif">
+      
+      <h1 id="mes">Oops! No Solved Complaints</h1>
+      {% endif %}
+
+    </div>
+  </body>
+</html>
+{% endblock content %}

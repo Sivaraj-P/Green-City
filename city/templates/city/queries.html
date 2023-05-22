@@ -1,0 +1,26 @@
+{% extends 'city/navbar.html' %} {% load static %} {% block title %}
+<title>Green City | Queries</title>
+{% endblock title %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <table class="table">
+    <tr>
+      <th>No</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Query</th>
+    </tr>
+
+    {% for query in queries %}
+    <tr>
+      <td>{{query.id}}</td>
+      <td>{{query.name}}</td>
+      <td>{{query.email}}</td>
+      <td>{{query.message}}</td>
+    </tr>
+
+    {% endfor %}
+  </table>
+  <input type="submit" value="Delete All" class="btn btn-danger" />
+</form>
+{% endblock content %}

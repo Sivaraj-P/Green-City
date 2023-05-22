@@ -1,0 +1,223 @@
+{% extends 'city/navbar.html' %} {% load static %} {% block title %}
+<title>Green City | Services</title>
+{% endblock title %} {% block content %}
+<style>
+  .container {
+    background: rgb(233, 232, 232);
+  }
+  p {
+    font-size: 18px;
+    text-indent: 20px;
+  }
+</style>
+
+<br />
+<h1>Services</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        <br />
+        As an organization, we take the health and safety of our community very
+        seriously. We understand that garbage, sewage, and stagnant water can
+        pose a threat to the well-being of individuals and the environment. That
+        is why we have a dedicated team of workers who are responsible for
+        addressing any complaints related to these issues. Our workers are
+        trained and equipped with the necessary tools to effectively resolve any
+        concerns that may arise. We encourage members of our community to reach
+        out to us with any complaints they may have, as we are committed to
+        providing a clean and safe environment for all. Our service types are
+        listed below.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{% static 'images/about1.jpg' %}"
+              class="d-block w-100"
+              alt="Slide 1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/about2.jpg' %}"
+              class="d-block w-100"
+              alt="Slide 2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="{% static 'images/about3.jpg' %}"
+              class="d-block w-100"
+              alt="Slide 3"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<!-- horizontal cards -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{%static 'images/garbage.jpeg' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Garbage</h4>
+          <p class="card-text">
+            The garbage was left uncollected and piled up, emitting a foul odor
+            and becoming a breeding ground for pests and diseases. The
+            accumulation of trash also posed environmental hazards and created
+            an eyesore for the surrounding community.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{% static 'images/sewage.jpeg' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Sewage</h4>
+          <p class="card-text">
+            Sewage leaking is a serious public health and environmental hazard
+            that can lead to contamination of water sources and the spread of
+            diseases. It is essential to promptly identify and address sewage
+            leaks to minimize their harmful effects.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{% static 'images/sanitization.avif' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Sanitization</h4>
+          <p class="card-text">
+            Improper sanitization can lead to the spread of harmful germs and
+            bacteria, increasing the risk of infections and illnesses. It is
+            essential to maintain proper sanitization practices in all areas,
+            including homes, workplaces, and public spaces.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{% static 'images/manhole.jpg' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Manhole</h4>
+          <p class="card-text">
+            The open manhole poses a significant danger to pedestrians and
+            drivers alike, as it can cause severe injuries or even death if
+            someone were to fall inside. It is important to report any open
+            manholes immediately to the relevant authorities to ensure public
+            safety.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{% static 'images/garbage_burning.jpg' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Burning of Garbage</h4>
+          <p class="card-text">
+            Burning of garbage releases harmful pollutants into the air, causing
+            air pollution and health problems for nearby residents. It is a
+            dangerous and unsustainable method of waste disposal that should be
+            avoided in favor of safer and more environmentally-friendly
+            alternatives.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="card mb-4 shadow-sm">
+        <img
+          class="card-img-top"
+          src="{% static 'images/water_stagnant.jpg' %}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Water Stangnation</h4>
+          <p class="card-text">
+            Water stagnation on roads can lead to several problems such as
+            flooding, increased risk of accidents, and damage to vehicles. It is
+            important to address the issue promptly to ensure the safety and
+            convenience of commuters.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

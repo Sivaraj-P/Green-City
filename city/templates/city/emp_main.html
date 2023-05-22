@@ -1,0 +1,41 @@
+{% extends 'city/navbar.html' %} {% block title %}
+<title>Green City | Employee Dashboard</title>
+{% endblock title %} {% block content %}
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xl-6 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4">
+        <h3 class="mb-0">{{new}}</h3>
+        <h5 class="mb-0">Complaints Recieved</h5>
+        <a href="{% url 'new_complaints' %}" class="btn btn-primary">Update</a>
+      </div>
+    </div>
+    <div class="col-xl-6 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4">
+        <h3 class="mb-0">{{pending}}</h3>
+        <h5 class="mb-0">Complaints Pending</h5>
+        <a href="{% url 'pending_complaints' %}" class="btn btn-danger"
+          >Update</a
+        >
+      </div>
+    </div>
+    <div class="col-xl-6 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4">
+        <h3 class="mb-0">{{solved}}</h3>
+        <h5 class="mb-0">Complaints Solved</h5>
+        <a href="{% url 'solved_complaints' %}" class="btn btn-success"
+          >Update</a
+        >
+      </div>
+    </div>
+    <div class="col-xl-6 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4">
+        <h3 class="mb-0">{{query}}</h3>
+        <h5 class="mb-0">Queries</h5>
+        <a href="{% url 'queries' %}" class="btn btn-warning"> Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

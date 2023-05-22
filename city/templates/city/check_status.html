@@ -1,0 +1,45 @@
+{% extends 'city/navbar.html' %} {% block title %}
+<title>Green City | Check Status</title>
+{% endblock title %} {% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <br />
+  <label for="check">Tracking ID</label>
+  <input type="text" name="id" id="check" class="form-control" />
+  <br />
+  <input type="submit" value="Check" class="btn btn-primary" />
+</form>
+{% if complaints %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <p>Complaint: {{complaints.complaint_type}}</p>
+    </li>
+    <li class="list-group-item"><p>Area: {{complaints.area}}</p></li>
+    <li class="list-group-item">
+      <p>Complaint Date: {{complaints.complaint_date}}</p>
+    </li>
+    <li class="list-group-item"><p>Status: {{complaints.status}}</p></li>
+  </ul>
+
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+
+{% endif %} <br />
+{% if messages %} {% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Invalid Tracking ID</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %} <br />
+{% endif %} {% endblock content %}

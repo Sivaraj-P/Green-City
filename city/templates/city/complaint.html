@@ -1,0 +1,89 @@
+{% extends 'city/navbar.html' %} {% load static %} {% load crispy_forms_tags %}
+{% block title %}
+<title>Green City | Complaint</title>
+{% endblock title %} {% block content %}
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 50px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
+</style>
+<body background="{% static 'images/about1.jpg' %}">
+  <div class="container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <!-- <label for="name">Complaint Type</label> -->
+        {{form.complaint_type|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="email">Address</label> -->
+        {{form.address|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">Area</label> -->
+        {{form.area|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">City</label> -->
+        {{form.city|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">Pincode</label> -->
+        {{form.pincode|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">Landmark</label> -->
+        {{form.landmark|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">Add Info</label> -->
+        {{form.info|as_crispy_field}}
+      </div>
+      <div class="form-group">
+        <!-- <label for="message">Picture</label> -->
+        {{form.picture|as_crispy_field}}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  {% endblock content %}
+</body>

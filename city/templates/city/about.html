@@ -1,0 +1,66 @@
+{% extends 'city/navbar.html' %} {% load static %} {% block title %}
+<title>Green City | About</title>
+{% endblock title %} {% block content %}
+
+<style>
+  .container {
+    background: rgb(233, 232, 232);
+  }
+  p {
+    font-size: 18px;
+  }
+</style>
+
+<br />
+<h1>About Us</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="{% static 'images/nature.jpg' %}"
+        alt="About Us Image"
+        class="img-fluid"
+      />
+    </div>
+    <div class="col-md-6">
+      <p>
+        The Green City web platform provides a platform for users to lodge
+        complaints about issues related to garbage, sewage, and drainage. Users
+        can navigate to the "Complaints" section of the website and fill out a
+        form detailing the nature of the problem and its location. The form may
+        require the user to provide additional information, such as photos or
+        videos, to help the authorities understand the issue better. Once
+        submitted, the complaint will be forwarded to the relevant department,
+        and the user will receive a confirmation email. The authorities will
+        investigate the issue and take appropriate action to resolve it. The
+        Green City web platform aims to ensure that users' complaints are
+        addressed promptly, and the city remains clean and healthy.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card col-md-6 col-lg-4">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fa-regular fa-clipboard"></i> Raise Complaint
+        </h5>
+        <p class="card-text">You can fill your complaints here.</p>
+        <a href="{% url 'complaint' %}" class="btn btn-primary">complaint</a>
+      </div>
+    </div>
+    <div class="card col-md-6 col-lg-4">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fa-solid fa-check"></i> Track Complaint
+        </h5>
+        <p class="card-text">You can track your complaints here.</p>
+        <a href="{% url 'check_status' %}" class="btn btn-success"
+          >Track Complaint</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
